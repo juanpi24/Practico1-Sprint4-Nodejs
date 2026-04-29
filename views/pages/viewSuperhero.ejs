@@ -1,0 +1,23 @@
+<!-- Mostrar perfil de Superhéroe-->
+<div class="container mt-5">
+  <div class="card shadow-lg p-4">
+    
+    <h2 class="text-center mb-4">🦸 <%= hero.nombreSuperHeroe %></h2>
+
+    <ul class="list-group">
+      <li class="list-group-item"><strong>Nombre real:</strong> <%= hero.nombreReal %></li>
+      <li class="list-group-item"><strong>Edad:</strong> <%= hero.edad %></li>
+      <li class="list-group-item"><strong>Planeta de Origen:</strong> <%= hero.planetaOrigen %></li>
+      <li class="list-group-item"><strong>Debilidad:</strong> <%= hero.debilidad %></li>
+      <li class="list-group-item"><strong>Poderes:</strong> <%= hero.poderes %></li>
+      <li class="list-group-item"><strong>Aliados:</strong> <%= hero.aliados %></li>
+      <li class="list-group-item"><strong>Enemigos:</strong> <%= hero.enemigos %></li>
+      <li class="list-group-item"><strong>Creador:</strong> <%= hero.creator %></li>
+    </ul>
+
+    <div class="text-center mt-4">
+      <a href="/heroes" class="btn btn-secondary">⬅ Volver al Dashboard</a>
+    </div>
+
+  </div>
+</div>

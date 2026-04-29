@@ -1,0 +1,30 @@
+<!--Para mostrar mensajes de errores express-session-->
+<% if (mensaje) { %>
+  <div class="alert <%= mensaje.tipo === 'success' ? 'alert-success' : 'alert-danger' %>">
+    <%= mensaje.texto %>
+  </div>
+<% } %>
+
+<!--Esto evita el famoso error: errores is not defined-->
+<%
+errores = errores || [];
+hero = hero || {};
+%>
+
+<% if (error) { %>
+<div class="alert alert-danger"><%= error %></div>
+<% } %>
+
+<!-- Errores Generales -->
+<% if (errores.length > 0) { %>
+  <div class="alert alert-danger">
+    <strong>Se encontraron errores de validación:</strong>
+    <ul class="mb-0">
+      <% errores.forEach(e => { %>
+        <li><%= e.msg %></li>
+      <% }) %>
+    </ul>
+  </div>
+<% } %>
+
+

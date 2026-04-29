@@ -1,0 +1,56 @@
+<!-- Footer -->
+<footer class="text-center mt-5 mb-3">
+<!-- REDES -->
+    <div class="text-center mt-4">
+      <h5 class="mb-3 text-white">🌐 Seguinos</h5>
+
+      <div class="d-flex justify-content-center gap-3">
+
+        <a href="#" class="social-icon github">
+          <i class="bi bi-github"></i>
+        </a>
+
+        <a href="#" class="social-icon linkedin">
+          <i class="bi bi-linkedin"></i>
+        </a>
+
+        <a href="#" class="social-icon instagram">
+          <i class="bi bi-instagram"></i>
+        </a>
+
+      </div>
+    </div>
+    <hr class="border-secondary">
+
+    <small>© 2026 - SuperApp | Desarrollado con Node.js</small>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--Biblioteca SweetAlert2: ventanas modales atractivas, animadas y personalizables--> 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+function confirmarEliminacion(event) {
+  event.preventDefault();
+
+  const form = event.target;
+
+  Swal.fire({
+    title: "¿Eliminar superhéroe?",
+    text: "Esta acción no se puede deshacer",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: "Sí, eliminar",
+    cancelButtonText: "Cancelar"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      form.submit();
+    }
+  });
+}
+</script>
+

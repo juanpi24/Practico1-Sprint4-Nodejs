@@ -1,0 +1,121 @@
+<!-- Mostrar Formulario Agregar-->
+<div class="container mt-5">
+    <h3>🦸 Agregar Superhéroe</h3>
+  
+      <form action="/heroes/agregar" method="POST" class="card p-4 needs-validation">
+        
+    <!-- Nombre -->
+    <div class="mb-3">
+        <label class="form-label">Nombre del superhéroe</label>
+        <input 
+            type="text" 
+            name="nombreSuperHeroe" 
+            class="form-control" 
+            value="<%= hero?.nombreSuperHeroe || '' %>"
+            required
+        >
+    </div>
+
+    <!-- Nombre real -->
+    <div class="mb-3">
+        <label class="form-label">Nombre real</label>
+        <input 
+            type="text" 
+            name="nombreReal" 
+            class="form-control" 
+            value="<%= hero?.nombreReal || '' %>"
+            required
+        >
+    </div>
+
+    <!-- Edad -->
+    <div class="mb-3">
+        <label class="form-label">Edad</label>
+        <input 
+            type="number" 
+            name="edad" 
+            class="form-control" 
+            value="<%= hero?.edad || '' %>"
+            required
+        >
+    </div>
+
+    <!-- Planeta -->
+    <div class="mb-3">
+        <label class="form-label">Planeta de origen</label>
+        <input 
+            type="text" 
+            name="planetaOrigen" 
+            class="form-control" 
+            value="<%= hero?.planetaOrigen || '' %>"
+            required
+        >
+    </div>
+
+    <!-- Debilidad -->
+    <div class="mb-3">
+        <label class="form-label">Debilidad</label>
+        <input 
+            type="text" 
+            name="debilidad" 
+            class="form-control" 
+            value="<%= hero?.debilidad || '' %>"
+            required
+        >
+    </div>
+
+    <!-- Poderes (array simple) -->
+    <div class="mb-3">
+        <label class="form-label">Poderes (separados por coma)</label>
+        <input 
+            type="text" 
+            name="poderes" 
+            class="form-control" 
+            value="<%= Array.isArray(hero?.poderes) ? hero.poderes.join(', ') : '' %>"
+            required
+        >
+    </div>
+
+    <!-- Aliados (array simple) -->
+    <div class="mb-3">
+        <label class="form-label">Aliados (separados por coma)</label>
+        <input 
+            type="text" 
+            name="aliados" 
+            class="form-control" 
+            value="<%= Array.isArray(hero?.aliados) ? hero.aliados.join(', ') : '' %>"
+            required
+        >
+    </div>
+
+    <!-- Enemigos (array simple) -->
+    <div class="mb-3">
+        <label class="form-label">Enemigos (separados por coma)</label>
+        <input 
+            type="text" 
+            name="enemigos" 
+            class="form-control" 
+            value="<%= Array.isArray(hero?.enemigos) ? hero.enemigos.join(', ') : '' %>"
+            required
+        >
+    </div>
+
+    <!-- Creador -->
+    <div class="mb-3">
+        <label class="form-label">Creador</label>
+        <input 
+            type="text" 
+            name="creator" 
+            class="form-control" 
+            value="<%= hero?.creator || '' %>"
+            required
+        >
+    </div>
+         
+        <div class="text-center mt-4">
+          <button type="submit" class="btn btn-success">Guardar</button>
+          <a href="/heroes" class="btn btn-secondary">⬅ Volver</a>
+        </div>
+        
+    </form>
+</div>

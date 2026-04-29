@@ -1,0 +1,72 @@
+ body {
+      background-color: #0f172a;
+      color: #e2e8f0;
+    }
+    .navbar {
+      background: linear-gradient(90deg, #1c1c1c, #343a40);
+    }
+
+/* LOGO */
+.logo {
+  height: 60px;
+  width: auto;
+  margin-right: 10px;
+}
+
+/* BOTONES NAV */
+.btn-nav {
+  color: #fff;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-nav:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+/* BOTON DESTACADO */
+.btn-nav-primary {
+  background-color: #0d6efd;
+  color: #fff;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-nav-primary:hover {
+  background-color: #0b5ed7;
+  color: #fff;
+}
+
+/* CONTENEDOR */
+.social-icon {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* COLORES POR RED */
+.social-icon.github {
+  background-color: #333;
+}
+
+.social-icon.linkedin {
+  background-color: #0a66c2;
+}
+
+.social-icon.instagram {
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
+}
+
+/* HOVER */
+.social-icon:hover {
+  transform: translateY(-5px) scale(1.1);
+  opacity: 0.9;
+}

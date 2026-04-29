@@ -1,0 +1,84 @@
+<!-- Validación FrontEnd -->
+<script>
+    document.querySelector("form").addEventListener("submit", function(e) {
+
+  let errores = [];
+
+  const form = e.target;
+
+  // =========================
+  // CAPTURAR DATOS
+  // =========================
+
+  const nombreSuperHeroe = form.nombreSuperHeroe.value.trim();
+  const nombreReal = form.nombreReal.value.trim();
+  const edad = form.edad.value.trim();
+  const poderesInput = form.poderes.value.trim();
+
+  const poderes = poderesInput
+    ? poderesInput.split(',').map(p => p.trim()).filter(p => p)
+    : [];
+
+  // =========================
+  // LIMPIAR ERRORES
+  // =========================
+
+  form.querySelectorAll(".is-invalid").forEach(el => el.classList.remove("is-invalid"));
+  form.querySelectorAll(".invalid-feedback").forEach(el => el.remove());
+
+  // =========================
+  // VALIDACIONES
+  // =========================
+
+  if (!nombreSuperHeroe) {
+    errores.push({ campo: "nombreSuperHeroe", msg: "Nombre requerido" });
+  } else if (nombreSuperHeroe.length < 3 || nombreSuperHeroe.length > 60) {
+    errores.push({ campo: "nombreSuperHeroe", msg: "Debe tener entre 3 y 60 caracteres" });
+  }
+
+  if (!nombreReal) {
+    errores.push({ campo: "nombreReal", msg: "Nombre real requerido" });
+  } else if (nombreReal.length < 3 || nombreReal.length > 60) {
+    errores.push({ campo: "nombreReal", msg: "Debe tener entre 3 y 60 caracteres" });
+  }
+
+  if (edad === "") {
+    errores.push({ campo: "edad", msg: "Edad requerida" });
+  } else if (!Number.isInteger(Number(edad)) || Number(edad) < 0) {
+    errores.push({ campo: "edad", msg: "Edad inválida" });
+  }
+
+  if (poderes.length === 0) {
+    errores.push({ campo: "poderes", msg: "Debe ingresar al menos un poder" });
+  } else {
+    poderes.forEach(p => {
+      if (p.length < 3 || p.length > 60) {
+        errores.push({ campo: "poderes", msg: "Cada poder debe tener entre 3 y 60 caracteres" });
+      }
+    });
+  }
+
+  // =========================
+  // MOSTRAR ERRORES
+  // =========================
+
+  if (errores.length > 0) {
+    e.preventDefault();
+
+    errores.forEach(err => {
+      const input = form.querySelector(`[name='${err.campo}']`);
+
+      if (input) {
+        input.classList.add("is-invalid");
+
+        const div = document.createElement("div");
+        div.className = "invalid-feedback";
+        div.innerText = err.msg;
+
+        input.closest(".mb-3").appendChild(div);
+      }
+    });
+  }
+
+});
+</script>
