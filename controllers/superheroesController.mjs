@@ -20,7 +20,7 @@ import {
          tipo: "error",
          texto: "Error al cargar Superhéroes"
     };
-       res.redirect("/heroes");
+       res.redirect("/heroes/dashboard");
     }
  }
 
@@ -35,7 +35,7 @@ export async function verSuperheroeController (req, res) {
         tipo: "error",
         texto: "Superhéroe no encontrado"
       };
-      return res.redirect("/heroes");
+      return res.redirect("/heroes/dashboard");
     }
 
     res.render("pages/viewSuperhero", { hero });
@@ -45,7 +45,7 @@ export async function verSuperheroeController (req, res) {
       tipo: "error",
       texto: "Error al cargar el perfil del Superhéroe"
     };
-    res.redirect("/heroes");
+    res.redirect("/heroes/dashboard");
   }
 };
 
@@ -64,7 +64,7 @@ export async function agregarSuperheroeController(req, res) {
     };
 
    // ✔ redirigir
-   res.redirect("/heroes");
+   res.redirect("/heroes/dashboard");
 
   } catch (error) {
          return res.render("pages/addSuperhero", {
@@ -84,7 +84,7 @@ export async function mostrarFormularioEditar (req, res) {
         tipo: "error",
         texto: "Superhéroe no encontrado"
       };
-      return res.redirect("/heroes");
+      return res.redirect("/heroes/dashboard");
     }
 
    res.render("pages/editSuperhero", {hero});
@@ -102,7 +102,7 @@ export async function actualizarSuperheroeController(req, res) {
                 tipo: "error",
                 texto: "El superhéroe no existe"
               };
-              return res.redirect("/heroes");
+              return res.redirect("/heroes/dashboard");
         }
     // ✔ mensaje de sesión
           req.session.mensaje = {
@@ -110,7 +110,7 @@ export async function actualizarSuperheroeController(req, res) {
             texto: "Superhéroe actualizado correctamente"
           };
    // ✔ redirigir
-            res.redirect("/heroes");
+            res.redirect("/heroes/dashboard");
           } catch (error) {
                 return res.render("pages/editSuperhero", {
                     errores: [{ msg: "Error al actualizar el superhéroe en la BD" }],
@@ -130,7 +130,7 @@ export async function eliminarSuperheroePorIDController(req, res) {
         tipo: "error",
         texto: "El superhéroe no existe"
       };
-      return res.redirect("/heroes");
+      return res.redirect("/heroes/dashboard");
     }
 
     req.session.mensaje = {
@@ -138,14 +138,14 @@ export async function eliminarSuperheroePorIDController(req, res) {
       texto: "Superhéroe eliminado correctamente"
     };
 
-    res.redirect("/heroes");
+    res.redirect("/heroes/dashboard");
 
   } catch (error) {
     req.session.mensaje = {
       tipo: "error",
       texto: "Error al eliminar el superhéroe"
     };
-    res.redirect("/heroes");
+    res.redirect("/heroes/dashboard");
   }
 };
         

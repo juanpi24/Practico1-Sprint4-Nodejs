@@ -9,7 +9,6 @@ const router= express.Router();
 import {
     obtenerTodosLosSuperheroesController,
     verSuperheroeController,
-    //mostrarFormularioAgregar,
     agregarSuperheroeController,
     mostrarFormularioEditar,
     actualizarSuperheroeController,
