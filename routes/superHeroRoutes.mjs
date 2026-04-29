@@ -24,8 +24,23 @@ import {reglasValidacion} from '../validations/heroValidation.mjs';
 import { normalizarArrays } from "../middlewares/normalizarArrayMiddleware.mjs"
 
 
+// Mostrar vista principal
+router.get("/", (req, res) => {
+  res.render("pages/home");
+});
+
+// Vista Nosotros
+router.get("/nosotros", (req, res) => {
+  res.render("pages/nosotros");
+});
+
+// Vista Contacto
+router.get("/contacto", (req, res) => {
+  res.render("pages/contacto");
+});
+
 // Mostrar todos los Superhéroes
-router.get('/', obtenerTodosLosSuperheroesController);
+router.get('/dashboard', obtenerTodosLosSuperheroesController);
 
 // Mostrar formulario Agregar
 //router.get("/agregar", mostrarFormularioAgregar);
@@ -57,15 +72,5 @@ router.get("/perfil/:id", verSuperheroeController);
 
 // Eliminar Superhéroes por ID + DELETE
 router.delete('/eliminar/:id', eliminarSuperheroePorIDController);
-
-// Vista Nosotros
-router.get("/nosotros", (req, res) => {
-  res.render("pages/nosotros");
-});
-
-// Vista Contacto
-router.get("/contacto", (req, res) => {
-  res.render("pages/contacto");
-});
 
 export default router;
