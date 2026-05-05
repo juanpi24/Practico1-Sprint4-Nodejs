@@ -13,7 +13,7 @@ import methodOverride from "method-override";
 // Servidor
 const app = express();
 // Usa el puerto de la variable de entorno o 3002 por defecto
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT;
 
 // Middleware para parsear JSON
 //app.use(express.json());

@@ -4,11 +4,22 @@
 
 //Importar mongoose
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
+// Cargar las variables de entorno del archivo .env
+dotenv.config();
 
 //Conexión a la base de datos MongoDB
 export async function connectDB() {
     try {
-        await mongoose.connect('mongodb+srv://grupo-12:grupo-12@cluster0.blryo.mongodb.net/NodeMod3Cohorte5');
+        // Usamos la variable definida en el .env
+        const dbUri = process.env.DB_URL;
+
+        if (!dbUri) {
+            throw new Error("La variable DB_URL no está definida en el archivo .env");
+        }
+
+        await mongoose.connect(dbUri);
         console.log('Conexión éxitosa a MongoDB');
     } catch (error) {
         console.error('Error al conectar a MongoDB:', error);
